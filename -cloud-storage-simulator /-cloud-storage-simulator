@@ -1,0 +1,45 @@
+# cloud_storage.py
+storage = {}
+def upload_file(filename, content):
+    storage[filename] = content
+    print(f"Uploaded: {filename}")
+def download_file(filename):
+    if filename in storage:
+        print(f"Downloaded: {filename}")
+        print("Content:", storage[filename])
+    else:
+        print("File not found")
+def list_files():
+    print("\nFiles in cloud storage:")
+    for filename in storage:
+        print("-", filename)
+def delete_file(filename):
+    if filename in storage:
+        del storage[filename]
+        print(f"Deleted: {filename}")
+    else:
+        print("File not found")
+# Upload files
+upload_file("resume.txt", "My Resume")
+upload_file("photo.jpg", "Vacation Photo")
+# List files
+list_files()
+# Download a file
+download_file("resume.txt")
+# Delete a file
+delete_file("photo.jpg")
+# List files again
+list_files()
+
+OUTPUT:
+Uploaded: resume.txt
+Uploaded: photo.jpg
+Files in cloud storage:
+- resume.txt
+- photo.jpg
+Downloaded: resume.txt
+Content: My Resume
+Deleted: photo.jpg
+Files in cloud storage:
+- resume.txt
+
